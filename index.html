@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        .header_container{
+            display: flex;
+            justify-content: space-around;
+            height: 60px;
+            background-color: whitesmoke;
+            align-items: center;
+            border-bottom: 0.1px solid rgb(233, 229, 229);
+        }
+        .header_middle{
+            color: grey;
+            display: flex;
+            gap: 20px;
+        }
+        .header_right{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .header_right>img{
+            width: 30px;
+            height: 30px;
+           transform: rotate(180deg);
+        }
+        .header_right>p{
+            background-color: rgb(219, 236, 236);
+            color: rgb(7, 170, 211);
+            padding: 10px;
+           border-radius: 12px;
+        }
+        .header_left>p{
+            font-size: x-large;
+            font-weight: 600;
+        }
+        .content{
+            display: flex;
+            width: 100%;
+            height: 100%;
+           justify-content: center;
+         
+
+        }
+        .content_left{
+            width: 48%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+           
+            padding: 20px;
+            gap: 15px;
+        }
+        .total_price{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            font-weight: 700;
+        }
+
+        .booknow_section{
+            display: flex;
+            width: 70%;
+            flex-direction: column;
+            padding: 10px;
+            gap: 20px;
+        }
+        .upper_section{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+          
+            border-radius: 5px;
+        }
+
+        .upper_section>input{
+            padding: 14px;
+            outline: none;
+            border: 0.1px solid rgb(226, 222, 222);
+           border-radius: 10px;
+
+        }
+        .down_section{
+            width: 100%;
+            display: flex;
+            
+        }
+        .left_down{
+            width: 50%;
+            
+        }
+        .left_down>input{
+            width: 98%;
+            padding: 14px;
+            outline: none;
+            border: 0.1px solid rgb(226, 222, 222);
+           border-radius: 10px;
+        }
+        .right_down{
+        
+            width: 50%;
+        }
+        .right_down>input{
+            width: 98%;
+            padding: 14px;
+            outline: none;
+            border: 0.1px solid rgb(226, 222, 222);
+           border-radius: 10px;
+        }
+        .booknow_btn{
+            width: 67%;
+        }
+        .booknow_btn>button{
+            width: 100%;
+            padding: 20px;
+            border: none;
+            border-radius: 7px;
+            color: white;
+            background-color: rgb(8, 61, 236);
+            font-weight: 600;
+            
+        }
+       .content_items{
+        width: 80%;
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+      
+        gap: 5px;
+    
+       }
+       .content_item{
+        width: 90%;
+        display: flex;
+       justify-content: space-between;
+        text-align:center;
+        
+        gap: 5px;
+         
+   
+       
+       }
+       .content_item>p{
+        
+        width: 30%;
+        color: rgb(105, 100, 100);
+       
+       }
+       #items_details{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+  justify-content: center;
+        align-items: center;
+        
+      
+       }
+       .content_items>p{
+        padding: 1px;
+      
+        width: 40%;
+       
+       }
+       .added_items{
+        font-size: x-large;
+   font-weight: 500;
+       }
+
+       .content_right{
+        width: 30%;
+        height: 50%;
+   
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 10px;
+       }
+       .name_price{
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+       }
+       .name_price>p{
+        font-size: large;
+        font-weight: 600;
+       }
+       .carts{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       }
+       .carts>img{
+        width: 400px;
+        height: 250px;
+       }
+       .buttuns_img{
+        display: flex;
+        width: 90%;
+        justify-content: space-around;
+       }
+       .buttons1,.buttons2{
+        display: flex;
+        gap: 5px;
+       }
+       .buttons1{
+           padding: 8px;
+        background-color: rgb(238, 223, 223);
+        border-radius: 8px;
+        color: rgb(138, 5, 5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 5px;
+       }
+       .buttons2{
+        padding: 8px;
+        background-color: rgb(224, 235, 224);
+        border-radius: 8px;
+        color:green;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+       }
+       .minus{
+       
+        width: 25px;
+        height: 25px;
+      font-size: 20px;
+      border: 0.1px solid red;
+      border-radius: 50px;
+      text-align: center;
+      font-weight: 600;
+       }
+       .plus{
+      color: green;
+        width: 25px;
+        height: 25px;
+      font-size: 20px;
+      border: 0.1px solid green;
+      border-radius: 50px;
+      text-align: center;
+      font-weight: 600;
+       }
+       .carts_price{
+        color: rgb(52, 66, 196);
+       }
+       .lastP{
+        color: rgb(15, 91, 231);
+        font-size: large;
+        font-weight: 500;
+       }
+       .book_now{
+        width: 66%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+   
+        font-weight: 600;
+       }
+       .items_price{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       }
+       .big_txt{
+        font-size: x-large;
+        font-weight: 500;
+        color: rgb(49, 47, 47);
+       }
+       .lastp_img{
+        display: flex;
+        gap: 2px;
+       }
+     
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header_container">
+          <div class="header_left">
+          <p>Logo</p>
+          </div>
+          <div class="header_middle">
+         <p>Home</p>
+         <p>Services</p>
+         <p>Contact Us</p>
+         <p>About Us</p>
+          </div>
+          <div class="header_right">
+            <p>Username</p>
+            <img src="logout.png" alt="">
+          </div>
+        </header>
+
+
+        <div class="content">
+            <div class="content_left">
+              <p class="added_items">Added Items</p>
+                   <div class="items_price">
+                    <div class='content_items'>
+                        <p>S.No.</p>
+                        <p>Service Name</p>
+                        <p>Price</p>
+                         </div>
+                        <div class='content_items' id="items_details">
+                                <div class="default_items" id="defult">
+                                    <img src="info.png" alt="" height="38px">
+                                    <p class="big_txt">No Items Added</p>
+                                    <p>Add items to the cart from the service bar</p>
+                                </div>
+                             
+                        
+                        
+                    
+                    </div>
+                   </div>
+                   
+                
+             
+           
+            <div class="total_price">
+                <p>Total Amount</p>
+                <p id="total">₹0.00</p>
+            </div>
+             <div class="book_now">
+                <p>Book Now</p>
+             </div>
+            <div class="booknow_section">
+
+            <div class="upper_section">
+            <label for="name">Full Name</label>
+            <input type="text" name="" id="name" placeholder="John Doe">
+            </div>
+
+            <div class="down_section">
+                <div class="left_down">
+                     <label for="email">Email ID</label>
+                    <input type="email" placeholder="mailid@gmail.com" id="email">
+                </div>
+                <div class="right_down">
+                    <label for="mobile">Phone Number</label>
+                 <input type="number" placeholder="0000000000" id="mobile">
+                </div>
+            </div>
+
+            </div>
+            
+                <div class="booknow_btn">
+                    <button id="booknow_btns" >Book now</button>
+                </div>
+                <p id="message"></p>
+
+            </div>
+
+
+            <div class="content_right" id="cart">
+               <div class="content_right_top">
+                <h3>Browse Our Services</h3>
+                <p>Click on the add to cart button to add the services to your cart or press skip</p>
+               </div>
+
+               <div class="carts" id="item_change">
+            
+               
+               </div>
+
+               <div class="buttuns_img" id="skip_button" onclick="skipbutton()">
+                <div class="buttons1">
+                    <p id="skip_btn">Skip Item</p>
+                    <p class="minus">-</p>
+                </div>
+                <div class="buttons2" id="plus_button" onclick="addItem()">
+                    <p id="add_btn">Add Item</p>
+                    <p class="plus">+</p>
+                </div>
+               
+               </div>
+               <div class="lastp_img">
+                <img src="https://shorturl.at/pyDJ5" alt="" height="20px">
+                <p class="lastP">Add the items to the cart and book now</p>
+               </div>
+              
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const products = [
+  {
+    id: 1,
+    name: "Dry Cleaning",
+    imageUrl: "https://shorturl.at/szP47",
+    price: 200
+  },
+  {
+    id: 2,
+    name: "Leather & Suede Cleaning",
+    imageUrl: "https://shorturl.at/hioD3",
+    price: 999
+  },
+  {
+    id: 3,
+    name: "Ironing",
+    imageUrl: "https://shorturl.at/amFU5",
+    price: 300
+  },
+  {
+    id: 4,
+    name: "Wedding Dress cleaning",
+    imageUrl: "https://shorturl.at/wyBHN",
+    price: 2400
+  }
+];
+
+let displayDiv = document.getElementById("item_change");
+       
+
+        
+               
+                   let count =0;
+                    displayDiv.innerHTML =` <img src="${products[count].imageUrl}" alt="">
+               <div class="name_price">
+                <p>${products[count].name}</p>
+                <p class="carts_price">₹${products[count].price}</p>
+               </div>`
+
+               let skipbutton =()=>{
+           count = (count + 1) % products.length;
+                displayDiv.innerHTML = `
+        <img src="${products[count + 1].imageUrl}" alt="">
+        <div class="name_price">
+            <p>${products[count + 1].name}</p>
+            <p class="carts_price">₹${products[count + 1].price}</p>
+        </div>`;
+            
+               }
+
+
+               let selectedItems = [];
+let defau = document.getElementById("defult")
+let totalElement = document.getElementById("total");
+let totalAmount = 0;
+
+let addItem = () => {
+    defau.style.display = "none";
+    
+    displayDiv.innerHTML = `
+        <img src="${products[count + 1].imageUrl}" alt="">
+        <div class="name_price">
+            <p>${products[count + 1].name}</p>
+            <p class="carts_price">₹${products[count + 1].price}</p>
+        </div>`;
+    count = (count + 1) % products.length;
+    let selectedItem = products[count];
+    selectedItems.push(selectedItem);
+    console.log(selectedItems);
+
+    
+    totalAmount += selectedItem.price;
+
+  
+    totalElement.textContent = `₹${totalAmount.toFixed(2)}`;
+
+    let selectedItemsHTML = selectedItems.map((item, index) => `
+        <div class="content_item">
+            <p>${index + 1}</p>
+            <p>${item.name}</p>
+            <p class="carts_price">₹${item.price}</p>
+        </div>`).join('');
+
+    document.getElementById("items_details").innerHTML = selectedItemsHTML;
+    bookNowButton.style.opacity = "1";
+};
+
+let messageElement = document.getElementById("message");
+let bookNowButton = document.querySelector(".booknow_btn");
+bookNowButton.style.opacity = "0.2";
+let bookNow = () => {
+    if (totalAmount === 0) {
+       
+        messageElement.style.color ="red"
+        messageElement.style.fontWeight =600
+
+        messageElement.textContent = "Add the items to the cart to book";
+    } else {
+        messageElement.style.color ="green"
+        messageElement.textContent = "Thank you for contactiing, we will get back to you soon";
+    }
+};
+
+
+document.querySelector(".booknow_btn button").addEventListener("click", bookNow);
+
+
+    </script>
+</body>
+</html>
